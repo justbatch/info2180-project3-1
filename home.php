@@ -1,9 +1,6 @@
 <?php
 session_start();
 if( !isset($_SESSION["login"]) || $_SESSION["login"] === 'false'){
-	
-	// define("BASE_URL", "http://localhost/info2180-final-project/"); 
-	//uncomment line below when in C9
 	define("BASE_URL", "https://info2180-project3-damainrussel.c9users.io/"); 
 	$url=BASE_URL.'index.php';
 	header("Location: $url");
@@ -27,6 +24,7 @@ if( !isset($_SESSION["login"]) || $_SESSION["login"] === 'false'){
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/javascript.js"></script>
+		<script src="js/handlehash.js"></script>
 
 	</head>
 	<body>
@@ -47,13 +45,11 @@ if( !isset($_SESSION["login"]) || $_SESSION["login"] === 'false'){
 						<button type="submit" class="btn btn-success" name="logout" id="logout">Logout</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">New Mail</a></li>
+						<li><a href="php-files/newmail.php" class="link nav-link">New Mail</a></li>
 						<?php
 						if(isset($_SESSION['userID']) && $_SESSION['userID'] === "6999"){
 							
-							echo '<li><a href="#">Create User</a></li>';
+							echo '<li><a href="php-files/newuser.php" class="link nav-link">Create User</a></li>';
 						}
 						?>
 					</ul>
@@ -68,8 +64,19 @@ if( !isset($_SESSION["login"]) || $_SESSION["login"] === 'false'){
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<div class="jumbotron">
-						<div class="container">
-							<p id="msg-body">Messages goes here</p>
+						<div class="container" id="container">
+							<div class="messages content">
+								<p id="msg-body"></p>
+							</div>
+							<div class="mailform content">
+							</div>
+							<div class="newuser content">
+							</div>
+							<div class="profile content">
+
+							</div>
+							<div class="settings content">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -79,10 +86,10 @@ if( !isset($_SESSION["login"]) || $_SESSION["login"] === 'false'){
 		<footer class="footer">
 			<div class="container">
 				<p class="text-muted">Site design / logo &#169; <?php 
-					date_default_timezone_set('America/New_York');
+					date_default_timezone_set('America/Jamaica');
 					echo date('Y');
 					?> 
-					CheapoMail; Developers <a href="#" rel="author">Milton</a> | <a href="#" rel="author">Alafia</a> | <a href="#" rel="author">Kevaughn</a>
+					CheapoMail (INFO2180 - Web Dev Final Project); Developers <a href="https://github.com/Damain-Russel" rel="author">Milton</a> | <a href="https://github.com/alafiab" rel="author">Alafia</a> | <a href="https://github.com/kev1876resume" rel="author">Kevaughn</a>
 				</p>
 			</div>
 		</footer>

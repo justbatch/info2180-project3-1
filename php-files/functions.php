@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-// define("BASE_URL", "http://localhost/info2180-final-project/"); 
-//uncomment line below when in C9
 define("BASE_URL", "https://info2180-project3-damainrussel.c9users.io/"); 
 if($_SESSION['access'] === "false"){
 	$url=BASE_URL.'index.php';
@@ -23,7 +20,7 @@ class Users{
 			$data=$stmt->fetch(PDO::FETCH_OBJ);
 			$database = null;
 			if($count){
-				$_SESSION['userID']=$data->user_id; 
+				$_SESSION['userID'] = $data->user_id; 
 				return true;
 			}
 			else{
@@ -32,6 +29,7 @@ class Users{
 		}
 		catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
 		}
 
 	}
@@ -49,6 +47,7 @@ class Users{
 		}
 		catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
 		}
 	}
 	
@@ -64,10 +63,26 @@ class Users{
 		}
 		catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
 		}
 	}
-
-}
+	
+	public function getUserIDByUserName($username){
+		try{
+			$database = StartDB();
+			$stmt = $database->prepare("SELECT user_id FROM mail_user WHERE u_name=:username");
+			$stmt->bindParam("username", $username,PDO::PARAM_STR);
+			$stmt->execute();
+			$data = $stmt->fetch(PDO::FETCH_OBJ);
+			$database = null;
+			return $data -> user_id;
+		}
+		catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
+		}
+	}
+} 
 
 class Messages{
 	public function getMessage($msgid){
@@ -82,6 +97,7 @@ class Messages{
 		}
 		catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
 		}
 	}
 	public function msgStatus($msgid){
@@ -101,6 +117,7 @@ class Messages{
 		}
 		catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+			return null;
 		}
 	}
 }

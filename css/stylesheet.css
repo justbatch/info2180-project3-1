@@ -116,7 +116,7 @@ body {
 	margin-left: 60px;
 }
 
-.alert-danger, .alert-warning {
+.alert-success, .alert-danger, .alert-warning {
 	display: none;
 }
 .footer {
@@ -143,3 +143,54 @@ body {
 .badge {
 	background-color: #f70723;
 }
+.jumbotron{
+	min-height: 450px;
+	max-height: 450px;
+	overflow-y: auto;
+	padding: 10px;
+	margin: auto;
+}
+.jumbotron.container{
+	padding-right: 0px;
+	max-width: 950px;
+	min-width: 950px;
+}
+
+.jumbotron::-webkit-scrollbar-track, textarea::-webkit-scrollbar{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.jumbotron::-webkit-scrollbar, textarea::-webkit-scrollbar{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+.jumbotron::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #272626;
+}
+
+#send, #newuser{
+	float: right;
+}
+.newuser{
+	margin-top: 50px;
+}
+
+textarea {
+	outline: none;
+	resize: none;
+	width: 100%;
+}
+
+.alert-dismissable{
+	float: left;
+	max-width: 450px;
+	min-width: 450px;
+	
+}
+
+
+
+

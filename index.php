@@ -2,10 +2,9 @@
 session_start();
 if( !isset($_SESSION["login"]) ){
 	$_SESSION["login"] = "false";
+	$_SESSION['access'] = "false";
 }
 else if( isset($_SESSION["login"]) && $_SESSION["login"] === "true" ){
-	// define("BASE_URL", "http://localhost/info2180-final-project/"); 
-	//uncomment line below when in C9
 	define("BASE_URL", "https://info2180-project3-damainrussel.c9users.io/"); 
 	$url=BASE_URL.'home.php';
 	header("Location: $url");
@@ -45,8 +44,8 @@ else if( isset($_SESSION["login"]) && $_SESSION["login"] === "true" ){
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<form class="navbar-form navbar-right" action="./" method="POST" name="login" id="login">
-						<input type="text" class="form-control" placeholder="Username" name="username" id="username" autocomplete="off" value="EriKl">
-						<input type="password" class="form-control" placeholder="Password" name="password" id="password" autocomplete="off" value="_h#Y7Xds8A">
+						<input type="text" class="form-control" placeholder="Username" name="username" id="username" autocomplete="off">
+						<input type="password" class="form-control" placeholder="Password" name="password" id="password" autocomplete="off">
 						<button type="submit" class="btn btn-success" name="loginsubmit" id="submit">Sign in</button>
 					</form>
 				</div>
@@ -68,15 +67,13 @@ else if( isset($_SESSION["login"]) && $_SESSION["login"] === "true" ){
 			</div>
 		</div>
 
-		<!--				<php require "php-files/register-form.php"; >-->
-
 		<footer class="footer">
 			<div class="container">
 				<p class="text-muted">Site design / logo &#169; <?php 
-					date_default_timezone_set('America/New_York');
+					date_default_timezone_set('America/Jamaica');
 					echo date('Y');
 					?> 
-					CheapoMail; Developers <a href="#" rel="author">Milton</a> | <a href="#" rel="author">Alafia</a> | <a href="#" rel="author">Kevaughn</a>
+					CheapoMail (INFO2180 - Web Dev Final Project); Developers <a href="https://github.com/Damain-Russel" rel="author">Milton</a> | <a href="https://github.com/alafiab" rel="author">Alafia</a> | <a href="https://github.com/kev1876resume" rel="author">Kevaughn</a>
 				</p>
 			</div>
 		</footer>

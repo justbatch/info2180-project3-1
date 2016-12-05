@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-// define("BASE_URL", "http://localhost/info2180-final-project/"); 
-//uncomment below when in c9
 define("BASE_URL", "https://info2180-project3-damainrussel.c9users.io/");
 function StartDB(){
 	if($_SESSION['access'] === "true"){

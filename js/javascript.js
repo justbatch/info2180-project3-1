@@ -1,3 +1,4 @@
+/*global $ */
 window.onload = function() {
 	"use strict";
 	var logout = document.getElementById('logout');
@@ -12,6 +13,10 @@ window.onload = function() {
 			getMessageBody(this.id);
 		});
 	}
+	$('blockquote').click(function() {
+		$(this).removeClass('unread');
+	});
+	
 };
 
 function getMessageBody(msgid){
@@ -36,9 +41,9 @@ function endSession(url,type){
 	httpRequest.onreadystatechange = function(){
 		if (httpRequest.readyState === XMLHttpRequest.DONE){
 			if (httpRequest.status === 200) {
-				// window.location = 'http://localhost/info2180-final-project/index.php';
+				window.location = 'http://localhost/info2180-final-project/index.php';
 				//uncomment below when in C9
-				window.location = 'https://info2180-project3-damainrussel.c9users.io/index.php';
+				//window.location = 'https://info2180-project3-damainrussel.c9users.io/index.php';
 			}
 		}
 	};

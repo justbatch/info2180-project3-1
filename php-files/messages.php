@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-// define("BASE_URL", "http://localhost/info2180-final-project/"); 
-//uncomment line below when in C9
 define("BASE_URL", "https://info2180-project3-damainrussel.c9users.io/"); 
 if($_SESSION['access'] === "false"){
 	$url=BASE_URL.'index.php';
@@ -16,7 +13,6 @@ $data = $user -> userMessages($_SESSION['userID']);
 
 
 $str = '<ul class="nav nav-sidebar" id="nav-bar">';
-//$str = '<ul class="nav nav-sidebar" id="nav-bar">';
 foreach($data as $msg){
 	//getting the recipient messages
 	$_SESSION['access'] = "true";
